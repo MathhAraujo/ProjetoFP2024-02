@@ -9,3 +9,10 @@ for i in range(Q):
     tempos.append(tempo)
 
 
+file = open('treinos.txt', 'a')
+for i in range(Q):
+    file.write(f'treino do dia: {treinos[i]}, tempo: {tempos[i]}\n')
+
+
+
+
