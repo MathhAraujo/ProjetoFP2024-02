@@ -25,4 +25,6 @@ for i in range(j):
     competicoes.append(competicao)
     tempos2.append(tempo)
 
-
+file = open('competições.txt', 'a')
+for i in range(j):
+    file.write(f'competicao: {competicoes[i]}, tempo: {tempos2[i]}\n')
