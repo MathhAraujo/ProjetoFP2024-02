@@ -1,0 +1,3 @@
+
+competicao: laufg, tempo: 12s
+competicao: yale, tempo: 10s
