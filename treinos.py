@@ -15,4 +15,14 @@ for i in range(Q):
 
 
 
+j = int(input('Quantas competições: '))
+competicoes = []
+tempos2 = []
+
+for i in range(j):
+    competicao = input("Digite o nome da competição: \n")
+    tempo = input("Digite o seu tempo: \n")
+    competicoes.append(competicao)
+    tempos2.append(tempo)
+
 
