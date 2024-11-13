@@ -73,3 +73,11 @@ def deletaObjetivo(objetivo):
         arquivo.write(f"{i}")
     
     arquivo.close()
+
+def printObjetivos():
+    arquivo = arquivoHandler("r")
+
+    arquivoList = arquivo.readlines()
+    for i in arquivoList:
+        i = i.split("/")
+        print(f"{i[0]}: {i[1]}{i[2]}", end="")
