@@ -47,3 +47,29 @@ def atualizarObjetivo(objetivo, valorModificado):
         arquivo.write(f"{i}")
     
     arquivo.close()
+
+def deletaObjetivo(objetivo):
+    arquivo = arquivoHandler("r")
+
+    objetivoLista = arquivo.readlines()
+
+    if len(objetivoLista)== 0:
+        print("Nenhum Objetivo registrado")
+    else:
+        newObjetivoList = []
+
+        for i in objetivoLista:
+
+            i = i.split("/")
+            if i[0] != objetivo:
+                newObjetivoList.append(f"{i[0]}/{i[1]}/{i[2]}")
+                print("Objetivo deletado com sucesso!")
+
+    arquivo.close()
+    
+    arquivo = arquivoHandler("w")   
+    
+    for i in newObjetivoList:
+        arquivo.write(f"{i}")
+    
+    arquivo.close()
