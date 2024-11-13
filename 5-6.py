@@ -34,7 +34,10 @@ def atualizarObjetivo(objetivo, valorModificado):
                 i[1]= float(i[1])
                 i[1] -= valorModificado
 
-            newObjetivoList.append(f"{i[0]}/{i[1]}/{i[2]}")
+            if float(i[1]) > 0:
+                newObjetivoList.append(f"{i[0]}/{i[1]}/{i[2]}")
+            else:
+                print("Objetivo concluído!")
 
     arquivo.close()
     
