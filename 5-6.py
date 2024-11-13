@@ -10,6 +10,8 @@ def arquivoHandler(openingFormat):
 
     return arquivo
 
+# 5 Start ---------------------------------------
+
 def addObjetivo(objetivo, valor, medida):
     arquivo = arquivoHandler("a")
 
@@ -22,6 +24,7 @@ def atualizarObjetivo(objetivo, valorModificado):
 
     objetivoLista = arquivo.readlines()
 
+    #Compara o objetivo com o passado e modifica apenas seu valor
     if len(objetivoLista)== 0:
         print("Nenhum Objetivo registrado")
     else:
@@ -33,6 +36,8 @@ def atualizarObjetivo(objetivo, valorModificado):
             if i[0] == objetivo:
                 i[1]= float(i[1])
                 i[1] -= valorModificado
+
+            #Apaga objetivo e avisa ao usuário caso tenha sido concluido
 
             if float(i[1]) > 0:
                 newObjetivoList.append(f"{i[0]}/{i[1]}/{i[2]}")
@@ -52,6 +57,8 @@ def deletaObjetivo(objetivo):
     arquivo = arquivoHandler("r")
 
     objetivoLista = arquivo.readlines()
+
+    #Apaga todos os objetivos que encontrar com o nome passado
 
     if len(objetivoLista)== 0:
         print("Nenhum Objetivo registrado")
@@ -80,4 +87,6 @@ def printObjetivos():
     arquivoList = arquivo.readlines()
     for i in arquivoList:
         i = i.split("/")
-        print(f"{i[0]}: {i[1]}{i[2]}", end="")
+        print(f"{i[0]}: {i[1]} {i[2]}", end="")
+
+# 5 End ---------------------------------------
