@@ -150,7 +150,7 @@ def filtrar_treinos():
 
 ##4 ---------------------------------------
 
-def import_treinos(treino,tempo,competicao):
+def import_treinos(treinos,tempos,competicao):
     Q = int(input('Quantos treinos: '))
 
     for i in range(Q):
