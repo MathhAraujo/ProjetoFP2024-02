@@ -1,7 +1,1 @@
-Treino;11/11/2011;11.0;11.0;11desetembro;11graus
-Treino;11/11/2011;11.0;11.0;11desetembro;11graus
-Treino;11/11/2011;11.0;11.0;11desetembro;11graus
-Treino;11/11/2011;11.0;11.0;11desetembro;11graus
-Treino;11/11/2011;11.0;11.0;11desetembro;11graus
-Treino;11/11/2011;11.0;11.0;11desetembro;11graus
-Treino;11/11/2011;11.0;11.0;11desetembro;11graus
+Treino;10/12/2001;500.0;60;casa;chuva

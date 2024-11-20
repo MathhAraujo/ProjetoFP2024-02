@@ -16,14 +16,16 @@ def arquivoHandler(nomeArquivo, openingFormat):
 ##1, 2 e 4 ---------------------------------------
 
 def menu():
-    print("Menu:")
+    print("\nMenu:")
     print("1. Adicionar Treino ou Competição")
     print("2. Visualizar Treinos ou Competição")
     print("3. Atualizar Treino ou Competição")
-    print("4. filtrar Treino")
+    print("4. Filtrar Treino")
     print("5. Excluir Treino ou Competição")
-    print("6. contar tempo de treino")
-    print("7. Sair")
+    print("6. Contar tempo de treino")
+    print("7. Abrir menu de Objetivos")
+    print("8. Sugerir treino")
+    print("9. Sair")
 
 def main():
     while True:
@@ -48,6 +50,12 @@ def main():
             print()
             funct_extra()
         elif opcao == '7':
+            print()
+            menuObjetivo()
+        elif opcao == '8':
+            print()
+            sugereTreino()
+        elif opcao == '9':
             print()
             print("Saindo...")
             break
@@ -82,7 +90,7 @@ def verificaTreino():
             raise ValueError
 
         dist = float(input("Insira a distância percorrida(m)?:"))
-        tempo = float(input("Qual a duração(minutos)?: "))
+        tempo = int(input("Qual a duração(segundos)?: "))
 
         local = input("Qual a localização em que ocorreu?: ")
         clima = input("Quais as condições climáticas?: ")
@@ -208,44 +216,82 @@ def filtrar_treinos():
 
 ## 5 ---------------------------------------
 
-def addObjetivo(objetivo, valor, medida):
+def menuObjetivo():
+    print("Menu:")
+    print("1. Exibir objetivos")
+    print("2. Adicionar Objetivo")
+    print("3. Atualizar Objetivo")
+    print("4. Deletar Objetivo")
+    print("5. Voltar ao menu principal")
+
+    try:
+        selecao = int(input())
+
+        if selecao == 1:
+            printObjetivos()
+        elif selecao == 2:
+            addObjetivo()
+        elif selecao == 3:
+            atualizarObjetivo()
+        elif selecao == 4:
+            deletaObjetivo()
+    except TypeError:
+        print("Erro de tipagem")
+
+def addObjetivo():
     arquivo = arquivoHandler("5-6.txt","a")
 
-    arquivo.write(f"{objetivo}/{float(valor)}/{medida}\n")
+    try:
+        objetivo = input("Qual o objetivo do treino?: ")
+        valor = float(input("Qual o valor que irá atingir?"))
+        medida = input("Qual medida usou para o valor(m, s, min, km, ...)")
+
+        arquivo.write(f"{objetivo}/{valor}/{medida}\n")
+
+    except ValueError:
+        print("Erro de tipagem")
+        addObjetivo()
 
     arquivo.close();
 
-def atualizarObjetivo(objetivo, valorModificado):
+def atualizarObjetivo():
+    printObjetivos()
+
     arquivo = arquivoHandler("5-6.txt", "r")
 
     objetivoLista = arquivo.readlines()
 
-    #Compara o objetivo com o passado e modifica apenas seu valor
-    if len(objetivoLista)== 0:
-        print("Nenhum Objetivo registrado")
-    else:
-        newObjetivoList = []
+    try:
+        objetivo = input("Qual o objetivo que irá modificar?: ")
+        valorModificado = float(input("Qual o valor a ser retirado?: "))
 
-        for i in objetivoLista:
+        if len(objetivoLista)== 0:
+            print("Nenhum Objetivo registrado")
+        else:
+            newObjetivoList = []
 
-            i = i.split("/")
-            if i[0] == objetivo:
-                i[1]= float(i[1])
-                i[1] -= valorModificado
+            for i in objetivoLista:
 
-            #Apaga objetivo e avisa ao usuário caso tenha sido concluido
+                i = i.split("/")
+                if i[0] == objetivo:
+                    i[1]= float(i[1])
+                    i[1] -= valorModificado
 
-            if float(i[1]) > 0:
-                newObjetivoList.append(f"{i[0]}/{i[1]}/{i[2]}")
-            else:
-                print("Objetivo concluído!")
+                #Apaga objetivo e avisa ao usuário caso tenha sido concluido
 
-    arquivo.close()
-    
-    arquivo = arquivoHandler("5-6.txt", "w")   
-    
-    for i in newObjetivoList:
-        arquivo.write(f"{i}")
+                if float(i[1]) > 0:
+                    newObjetivoList.append(f"{i[0]}/{i[1]}/{i[2]}")
+                else:
+                    print("Objetivo concluído!")
+
+        arquivo.close()
+        
+        arquivo = arquivoHandler("5-6.txt", "w")   
+        
+        for i in newObjetivoList:
+            arquivo.write(f"{i}")
+    except TypeError:
+        print("Erro de tipagem")
     
     arquivo.close()
 
@@ -288,18 +334,18 @@ def printObjetivos():
 
 # 6 Start ---------------------------------------
 
-def sugereTreinos():
+def sugereTreino():
     arquivo = arquivoHandler("treinos.txt", "r")
 
-    arquivoList = arquivo.readLines()
+    arquivoList = arquivo.readlines()
     lengArquivo = len(arquivoList)
 
     if lengArquivo > 0:
-        # TODO: Trocar para formatação do txt treinos
-        treinoEx = arquivoList[random.randint(0, lengArquivo)].split("/")
+        treinoEx = arquivoList[int(lengArquivo / 2)].split(";")
+
+        #Sugere um treino com o objetivo 10% maior e tempo 10% menor
         
-        #Sugere um treino aleatório com o objetivo de 10% a 50% maior
-        treinoSugerido = f"treinoEx[0] + {float(treinoEx[1]) * random.uniform(1.1, 1.5)}"
+        print(f"Seu treino será: {float(treinoEx[2]) * 1.1} m em {int(treinoEx[3]) * 0.9} segundos")
         
 
     else:

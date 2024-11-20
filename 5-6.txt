@@ -1,2 +1,2 @@
-Correr em 10 minutos/2.0/km
+Correr em 10 minutos/1.0/km
 Correr em 20 minutos/5.0/km
