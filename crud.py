@@ -2,112 +2,163 @@ import os
 os.system('cls')
 import time as tempo
 
-treinos = []
-competicoes = []
+os.system("cls")
+
+def arquivoHandler(nomeArquivo, openingFormat):
+    try:
+        arquivo = open(nomeArquivo, openingFormat)
+    except FileNotFoundError:
+        open(nomeArquivo, "x").close()
+        arquivo = arquivoHandler(nomeArquivo, openingFormat)
+
+    return arquivo
+
+##1, 2 e 4 ---------------------------------------
 
 def menu():
-    print("\nMenu:")
-    print("1. Adicionar Treino")
-    print("2. Visualizar Treinos")
-    print("3. Atualizar Treino")
-    print("4. Excluir Treino")
-    print("5. Adicionar Competição")
-    print("6. Visualizar Competições")
-    print("7. Atualizar Competição")
-    print("8. Excluir Competição")
-    print("9. Sair")
-
-def adicionar_treino():
-    treino = input("Digite os detalhes do treino: ")
-    treinos.append(treino)
-    print("Treino adicionado com sucesso!")
-
-def visualizar_treinos():
-    if not treinos:
-        print("Nenhum treino cadastrado.")
-    else:
-        print("Treinos cadastrados:")
-        for i, treino in enumerate(treinos, 1):
-            print(f"{i}. {treino}")
-
-def atualizar_treino():
-    visualizar_treinos()
-    index = int(input("Digite o número do treino que deseja atualizar: ")) - 1
-    if 0 <= index < len(treinos):
-        novo_treino = input("Digite os novos detalhes do treino: ")
-        treinos[index] = novo_treino
-        print("Treino atualizado com sucesso!")
-    else:
-        print("Índice inválido.")
-
-def excluir_treino():
-    visualizar_treinos()
-    index = int(input("Digite o número do treino que deseja excluir: ")) - 1
-    if 0 <= index < len(treinos):
-        treinos.pop(index)
-        print("Treino excluído com sucesso!")
-    else:
-        print("Índice inválido.")
-
-def adicionar_competicao():
-    competicao = input("Digite os detalhes da competição: ")
-    competicoes.append(competicao)
-    print("Competição adicionada com sucesso!")
-
-def visualizar_competicoes():
-    if not competicoes:
-        print("Nenhuma competição cadastrada.")
-    else:
-        print("Competições cadastradas:")
-        for i, competicao in enumerate(competicoes, 1):
-            print(f"{i}. {competicao}")
-
-def atualizar_competicao():
-    visualizar_competicoes()
-    index = int(input("Digite o número da competição que deseja atualizar: ")) - 1
-    if 0 <= index < len(competicoes):
-        nova_competicao = input("Digite os novos detalhes da competição: ")
-        competicoes[index] = nova_competicao
-        print("Competição atualizada com sucesso!")
-    else:
-        print("Índice inválido.")
-
-def excluir_competicao():
-    visualizar_competicoes()
-    index = int(input("Digite o número da competição que deseja excluir: ")) - 1
-    if 0 <= index < len(competicoes):
-        competicoes.pop(index)
-        print("Competição excluída com sucesso!")
-    else:
-        print("Índice inválido.")
+    print("Menu:")
+    print("1. Adicionar Treino ou Competição")
+    print("2. Visualizar Treinos ou Competição")
+    print("3. Atualizar Treino ou Competição")
+    print("4. Excluir Treino ou Competição")
+    print("5. Sair")
 
 def main():
     while True:
         menu()
-        opcao = input("Escolha uma opção: ")
+        opcao = input("\nEscolha uma opção: ")
         if opcao == '1':
+            print()
             adicionar_treino()
         elif opcao == '2':
+            print()
             visualizar_treinos()
         elif opcao == '3':
+            print()
             atualizar_treino()
         elif opcao == '4':
+            print()
             excluir_treino()
         elif opcao == '5':
-            adicionar_competicao()
-        elif opcao == '6':
-            visualizar_competicoes()
-        elif opcao == '7':
-            atualizar_competicao()
-        elif opcao == '8':
-            excluir_competicao()
-        elif opcao == '9':
+            print()
             print("Saindo...")
             break
         else:
             print("Opção inválida. Tente novamente.")
 
-##2 ---------------------------------------
+def adicionar_treino():
+    arquivo = arquivoHandler("treinos.txt", "a")
+
+    data = verificaTreino()
+
+
+    arquivo.write(data)
+
+
+    print("\nTreino adicionado com sucesso!\n")
+
+    arquivo.close()
+
+def verificaTreino():
+    tipoValido = ["Treino", "Competicao"]
+
+    try:
+        tipo = input("Você está salvando um treino ou competição?: ").lower().capitalize()
+
+        if tipo not in tipoValido:
+            raise ValueError
+        
+        data = input( "Qual a data(DD/MM/YYYY) em que ocorreu?: ")
+
+        if len(data.split("/")) != 3:
+            raise ValueError
+
+        dist = float(input("Insira a distância percorrida(m)?:"))
+        tempo = float(input("Qual a duração(minutos)?: "))
+
+        local = input("Qual a localização em que ocorreu?: ")
+        clima = input("Quais as condições climáticas?: ")
+
+        return f"{tipo};{data};{dist};{tempo};{local};{clima}\n"
+    
+    except ValueError:
+        print("Erro de tipagem")
+        return verificaTreino()
+
+
+
+def visualizar_treinos():
+    arquivo = arquivoHandler("treinos.txt", "r")
+
+    data = arquivo.readlines()
+
+    if len(data) == 0:
+        print("Não existem treinos ou competições salvas")
+    else:
+        for i in range(0, len(data)):
+            current = data[i].split(";")
+
+            print(f"{i + 1} -")
+            print(f"Tipo: {current[0]}")
+            print(f"Data: {current[1]}")
+            print(f"Distância: {current[2]}")
+            print(f"Tempo: {current[3]}")
+            print(f"Local: {current[4]}")
+            print(f"Clima: {current[5]}\n")
+
+    arquivo.close()
+
+def atualizar_treino():
+    visualizar_treinos()
+    
+    try:
+        index = int(input("Qual o dataset a modificar?: ")) - 1
+
+        arquivo = arquivoHandler("treinos.txt", "r")
+        data = arquivo.readlines()
+
+        arquivo.close()
+
+        data[index] = verificaTreino()
+
+        arquivo = arquivoHandler("treinos.txt", "w")
+
+        for i in data:
+            arquivo.write(i)
+        
+        print("Dataset modificado com sucesso!")
+        arquivo.close()
+
+    except ValueError:
+        print("Erro de tipagem")
+    except IndexError:
+        print("Dataset inexistente")
+
+def excluir_treino():
+    visualizar_treinos()
+
+    try:
+        index = int(input("Qual o dataset a apagar?: ")) - 1
+
+        arquivo = arquivoHandler("treinos.txt", "r")
+        data = arquivo.readlines()
+
+        arquivo.close()
+
+        arquivo = arquivoHandler("treinos.txt", "w")
+
+        for i in range(len(data)):
+            if i != index:
+                arquivo.write(data[i])
+        
+        print("Dataset apagado com sucesso!\n")
+
+        arquivo.close()
+
+    except ValueError:
+        print("Erro de tipagem")
+    except IndexError:
+        print("Dataset inexistente")
 
 
 ##3 ---------------------------------------
@@ -147,54 +198,7 @@ def filtrar_treinos():
     else:
         print("Opção inválida. Por favor, selecione 1 ou 2.")
 
-
-##4 ---------------------------------------
-
-def import_treinos(treinos,tempos,competicao):
-    Q = int(input('Quantos treinos: '))
-
-    for i in range(Q):
-        treino = input("Digite a data do treino: \n")
-        tempo = input("Digite o seu tempo: \n")
-        treinos.append(treino)
-        tempos.append(tempo)
-
-
-    file = open('treinos.txt', 'a')
-    for i in range(Q):
-        file.write(f'treino do dia: {treinos[i]}, tempo: {tempos[i]}\n')
-
-
-
-    j = int(input('Quantas competições: '))
-    competicoes = []
-    tempos2 = []
-
-    for i in range(j):
-        competicao = input("Digite o nome da competição: \n")
-        tempo = input("Digite o seu tempo: \n")
-        competicoes.append(competicao)
-        tempos2.append(tempo)
-
-    file = open('competições.txt', 'a')
-    for i in range(j):
-        file.write(f'competicao: {competicoes[i]}, tempo: {tempos2[i]}\n')
-            
-    import_treinos(treino,tempo,competicao)
-
 ## 5 ---------------------------------------
-
-
-def arquivoHandler(nomeArquivo, openingFormat):
-    try:
-        arquivo = open(nomeArquivo, openingFormat)
-    except FileNotFoundError:
-        open(nomeArquivo, "x").close()
-        arquivo = arquivoHandler(openingFormat)
-
-    return arquivo
-
-# 5 Start ---------------------------------------
 
 def addObjetivo(objetivo, valor, medida):
     arquivo = arquivoHandler("5-6.txt","a")
@@ -273,7 +277,6 @@ def printObjetivos():
         i = i.split("/")
         print(f"{i[0]}: {i[1]} {i[2]}", end="")
 
-# 5 End ---------------------------------------
 
 # 6 Start ---------------------------------------
 
@@ -316,4 +319,5 @@ def funct_extra(t,x,decorrido,decorrido2):
 
     funct_extra(t,x,decorrido,decorrido2)
 
-    menu()
+main()
+    
