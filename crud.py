@@ -20,8 +20,10 @@ def menu():
     print("1. Adicionar Treino ou Competição")
     print("2. Visualizar Treinos ou Competição")
     print("3. Atualizar Treino ou Competição")
-    print("4. Excluir Treino ou Competição")
-    print("5. Sair")
+    print("4. filtrar Treino")
+    print("5. Excluir Treino ou Competição")
+    print("6. contar tempo de treino")
+    print("7. Sair")
 
 def main():
     while True:
@@ -38,8 +40,14 @@ def main():
             atualizar_treino()
         elif opcao == '4':
             print()
-            excluir_treino()
+            filtrar_treinos()
         elif opcao == '5':
+            print()
+            excluir_treino()
+        elif opcao == '6':
+            print()
+            funct_extra()
+        elif opcao == '7':
             print()
             print("Saindo...")
             break
@@ -297,8 +305,8 @@ def sugereTreinos():
     else:
         print("Nenhum treino para basear a sugestão")
 
-## 7 -------------------------------
-def funct_extra(t,x,decorrido,decorrido2):
+## 7 ------------------------------
+def funct_extra():
 
     file = open('7.txt', 'a')
 
@@ -307,17 +315,16 @@ def funct_extra(t,x,decorrido,decorrido2):
 
     decorrido = t[3].split(":")
 
-    input()
+    input('digite qualquer coisa e finalize a contagem:\n')
 
     x = tempo.asctime(tempo.localtime())
     x = x.split(" ")
 
     decorrido2 = x[3].split(":")
 
-    print(f"Tempo de treino {int(decorrido2[2]) - int(decorrido[2])} foi de segundos")
+    print(f"Tempo de treino {int(decorrido2[2]) - int(decorrido[2])} foi de segundos\n")
     file.write(f"tempo de treino: {int(decorrido2[2]) - int(decorrido[2])} segundos\n")
-
-    funct_extra(t,x,decorrido,decorrido2)
+    file.close()
 
 main()
     
