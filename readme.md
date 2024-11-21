@@ -1,13 +1,13 @@
 # CRUD DE FUNDAMENTOS DE PROGRAMAÇÃO
 
 
-Nesse projeto foi desenvolvido o CRUD onde foram feitas as etapas de armazenamento de treinos e competições de um determinado atleta, podendo criar novos trenos, atalizar informações sobre eles e também deletalos. Além de tudo isso, foi implementada uma função de tempo para que possa cronometrar seus treinos.
+Nesse projeto foi desenvolvido  oCRUD onde foram feitas as etapas de armazenamento de treinos e competições de um determinado atleta, podendo criar novos trenos, atalizar informações sobre eles e também deletalos. Além de tudo isso, foi implementada uma função de tempo para que possa cronometrar seus treinos.
 
 
 ## 🚀 C.R.U.D - CREATE | READ | UPDATE | DELETE
 
 
-USAMOS DE *VETORES* PARA ARMAZENAR AS INFORMAÇOES, ORGANIZA-LAS E IMLEMENTALAS NO **'ARQUIVO.TXT"**
+USAMOS DE *VETORES* PARA ARMAZENAR AS INFORMAÇOES, ORGANIZA-LAS E IMPLEMENTÁ-LAS NO **'ARQUIVO.TXT"**
 
 
 Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar o projeto.
@@ -43,8 +43,8 @@ após adicionar um treino, ele vai ser separado e implementado no arquivo'.txt',
 
 
 ```txt
-treino;11/11/11;11.0;11.0;climafrio
-competição;11/11/11;11.0;11.0;climaquente
+treino;11/11/11;1000.0;500.0;frio
+competição;11/11/11;1000.0;500.0;quente
 ```
 
 
@@ -52,21 +52,21 @@ quando ele é solicitado para sustituir/deletar, aparece no terminal dessa forma
 
 
 ```python
-1.treino;11/11/11;11.0;11.0;climafrio
-2.competição;11/11/11;11.0;11.0;climaquente
+1.treino;11/11/11;1000.0;500.0;frio
+2.competição;11/11/11;1000.0;500.0;quente
 
 
 ##assim você seleciona o arquivo que quer alterar colocando sua numeração no input do terminal
 ```
 
 
-## ⚙️ COM OS TREINOS ADICIOADOS
+## ⚙️ COM OS TREINOS ADICIONADOS
 
 
 Com os treinos adicioados, ten-se as opções de visualização e também de substituir datasets
 
 
-### 🔩 Substituindo as datasets
+### 🔩 Substituindo os datasets
 
 
 Os seguinte código serve para modificar os itens do arquivo individualmente, dessa forma, coseguindo alterar no formato correto, caso erre o formato, será exibido **ERRO DE TIPAGEM**:.
@@ -111,7 +111,7 @@ try:
 ### AGORA O TEMPO ESCOLHIDO VAI FILTRAR OS TREINOS DO USUÁRIO...
 
 
-### 🔩 Substituindo as datasets
+### 🔩 Substituindo os datasets
 
 
 ao ativar essa funcionalidade foi criado um submenu de objetivos
@@ -160,7 +160,7 @@ a partir disso ten-se um treino filtrado com a escolha do usuário, onde poderia
 ### agora seguem as funcionalidades 5 e 6...
 
 
-### 🔩 Substituindo as datasets
+### 🔩 Substituindo os datasets
 
 
 ao ativar essa funcionalidade foi criado um submenu de objetivos
@@ -234,7 +234,7 @@ biblioteca time(na funcionalidade extra)
 
 **Leonardo Gutzeit Borgmann Matos**
 
-**Matheus Henrique Araujo**
+**Matheus Henrique de Melo Araujo**
 
 **JOÃO LUCAS**
 
