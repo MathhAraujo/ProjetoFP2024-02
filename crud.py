@@ -248,6 +248,8 @@ def addObjetivo():
 
         arquivo.write(f"{objetivo}/{valor}/{medida}\n")
 
+        print("Objetivo adicionado")
+
     except ValueError:
         print("Erro de tipagem")
         addObjetivo()
@@ -281,9 +283,9 @@ def atualizarObjetivo():
 
                 if float(i[1]) > 0:
                     newObjetivoList.append(f"{i[0]}/{i[1]}/{i[2]}")
+                    print("Objetivo atualizado")
                 else:
                     print("Objetivo concluído!")
-
         arquivo.close()
         
         arquivo = arquivoHandler("5-6.txt", "w")   
