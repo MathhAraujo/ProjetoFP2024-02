@@ -103,10 +103,10 @@ try:
 
 
 
-## ☮️ FINCT 3 . . . .
+## ☮️ FILTRANDO. . . .
 
 
-### agora seguem as funcionalidades 5 e 6...
+### AGORA O TEMPO ESCOLHIDO VAI FILTRAR OS TREINOS DO USUÁRIO...
 
 
 ### 🔩 Substituindo as datasets
@@ -116,17 +116,34 @@ ao ativar essa funcionalidade foi criado um submenu de objetivos
 
 ```python
 
-Menu:
-1. Exibir objetivos
-2. Adicionar Objetivo
-3. Atualizar Objetivo
-4. Deletar Objetivo
-5. Voltar ao menu principal
+#OUTPUT
 
+try:
+        with open(nome_arquivo, 'r') as arquivo:
+            linhas = arquivo.readlines()
+            for linha in linhas:
+                partes = linha.strip().split(';')
+                if len(partes) == 6: 
+                    ..................
+
+#   terminal:                 ------------------------------------------------------------
+
+Filtrar Treinos
+1. Filtrar por Distância
+2. Filtrar por Tempo
+Escolha uma opção (1 ou 2): 2
+Digite o tempo máximo desejado (minutos): 60
 
 
 ```
-a partir disso ten-se um treino sugerido:
+## saída : .
+```Python
+
+Treinos com tempo de 60.0 minutos:
+Tipo: Treino, Data: 20/10/2020, Distância: 15.0 km, Tempo: 60.0 min, Localização: jaqueira, Clima: sol
+
+````
+a partir disso ten-se um treino filtrado com a escolha do usuário, onde poderia se ter filtrado por distancia ou por tempo
 
 ## saída : .
 
@@ -211,13 +228,13 @@ biblioteca time(na funcionalidade extra)
 ## 🖇️ Colaborando
 
 
-**LEONARDO GUTZEIT BORGMANN MATOS**
+**Leonardo Gutzeit Borgmann Matos**
 
-**MATHEUS HENRIQUE ARAUJO**
+**Matheus Henrique Araujo**
 
 **JOÃO LUCAS**
 
-**GUILHERME HECKSHER**
+**Guilherme Santa Cruz Vieira Hecksher**.
 
 **LUIS FELIPE**
 
