@@ -179,20 +179,49 @@ def excluir_treino():
 
 ##3 ---------------------------------------
 
+def carregar_treinos_arquivo():
+    treinos = []
+    nome_arquivo = "treinos.txt"
+    try:
+        with open(nome_arquivo, 'r') as arquivo:
+            linhas = arquivo.readlines()
+            for linha in linhas:
+                partes = linha.strip().split(';')
+                if len(partes) == 6: 
+                    try:
+                        tipo = partes[0].strip()
+                        data = partes[1].strip()
+                        distancia = float(partes[2].strip())
+                        tempo = float(partes[3].strip())
+                        localizacao = partes[4].strip()
+                        clima = partes[5].strip()
+                        treinos.append((tipo, data, distancia, tempo, localizacao, clima))
+                    except ValueError:
+                        print(f"Erro ao processar linha: {linha}. Certifique-se de que os dados numéricos são válidos.")
+    except FileNotFoundError:
+        print(f"Erro: Arquivo '{nome_arquivo}' não encontrado.")
+    return treinos
+
 def filtrar_treinos():
     print("Filtrar Treinos")
     print("1. Filtrar por Distância")
     print("2. Filtrar por Tempo")
     escolha = input("Escolha uma opção (1 ou 2): ")
     
+    treinos = carregar_treinos_arquivo()
+    
+    if not treinos:
+        print("Nenhum treino carregado do arquivo.")
+        return
+    
     if escolha == "1":
         try:
             distancia = float(input("Digite a distância desejada (km): "))
-            filtrados = [treino for treino in treinos if treino["distancia"] == distancia]
+            filtrados = [treino for treino in treinos if treino[2] == distancia]
             if filtrados:
                 print(f"\nTreinos com {distancia} km:")
                 for treino in filtrados:
-                    print(treino)
+                    print(f"Tipo: {treino[0]}, Data: {treino[1]}, Distância: {treino[2]} km, Tempo: {treino[3]} min, Localização: {treino[4]}, Clima: {treino[5]}")
             else:
                 print("Nenhum treino encontrado com essa distância.")
         except ValueError:
@@ -201,11 +230,11 @@ def filtrar_treinos():
     elif escolha == "2":
         try:
             tempo = float(input("Digite o tempo máximo desejado (minutos): "))
-            filtrados = [treino for treino in treinos if treino["tempo"] <= tempo]
+            filtrados = [treino for treino in treinos if treino[3] <= tempo]
             if filtrados:
-                print(f"\nTreinos com tempo até {tempo} minutos:")
+                print(f"\nTreinos com tempo de {tempo} minutos:")
                 for treino in filtrados:
-                    print(treino)
+                    print(f"Tipo: {treino[0]}, Data: {treino[1]}, Distância: {treino[2]} km, Tempo: {treino[3]} min, Localização: {treino[4]}, Clima: {treino[5]}")
             else:
                 print("Nenhum treino encontrado com esse tempo.")
         except ValueError:
