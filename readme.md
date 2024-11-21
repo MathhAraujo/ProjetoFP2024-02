@@ -102,76 +102,123 @@ try:
 ```
 
 
-### ⌨️ E testes de estilo de codificação
+
+## ☮️ FINCT 3 . . . .
 
 
-Explique que eles verificam esses testes e porquê.
+### agora seguem as funcionalidades 5 e 6...
+
+
+### 🔩 Substituindo as datasets
+
+
+ao ativar essa funcionalidade foi criado um submenu de objetivos
+
+```python
+
+Menu:
+1. Exibir objetivos
+2. Adicionar Objetivo
+3. Atualizar Objetivo
+4. Deletar Objetivo
+5. Voltar ao menu principal
+
 
 
 ```
-Dar exemplos
+a partir disso ten-se um treino sugerido:
+
+## saída : .
+
+
+
+
+
+
+## 🗣️ COM OS TREINOS ADICIOADOS . . . .
+
+
+### agora seguem as funcionalidades 5 e 6...
+
+
+### 🔩 Substituindo as datasets
+
+
+ao ativar essa funcionalidade foi criado um submenu de objetivos
+
+```python
+
+Menu:
+1. Exibir objetivos
+2. Adicionar Objetivo
+3. Atualizar Objetivo
+4. Deletar Objetivo
+5. Voltar ao menu principal
+
+
+
+```
+a partir disso ten-se um treino sugerido:
+
+## saída : .
+
+```python
+
+Seu treino será: 550.0 m em 54.0 segundos
+
 ```
 
+## 🕑 FUNCIONALIDADE EXTRA. . . .
+
+A FUNCIONALIDADE EXTRA ESCOLHIDA FOI UM CONTADOR DE TEMPO PARA "SEUS" TREINOS
+
+
+DESSA FORMA
+```python
+
+6. contar tempo de treino
+
+# AO ESCOLHER ESSA OPÇÃO "LÁ NO PRIMEIRO MENU", INICIARÁ UM CONTADOR
+
+```
+a partir disso, APÓS o proximo input:
+
+## saída : .
+
+```python
+
+Digite qualquer coisa para parar o contador:
+||
+
+seu tempo foi de 99 segundos
+
+```
 
 ## 📦 Implantação
 
 
-Adicione notas adicionais sobre como implantar isso em um sistema ativo
+A IMPLEMENTAÇÃO FOI VIA REPOSITÓRIO, NESSE GIT HUB
 
 
 ## 🛠️ Construído com
 
 
-Mencione as ferramentas que você usou para criar seu projeto
-
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - O framework web usado
-* [Maven](https://maven.apache.org/) - Gerente de Dependência
-* [ROME](https://rometools.github.io/rome/) - Usada para gerar RSS
+os system
+python
+biblioteca time(na funcionalidade extra)
 
 
 ## 🖇️ Colaborando
 
 
-Por favor, leia o [COLABORACAO.md](https://gist.github.com/usuario/linkParaInfoSobreContribuicoes) para obter detalhes sobre o nosso código de conduta e o processo para nos enviar pedidos de solicitação.
+**LEONARDO GUTZEIT BORGMANN MATOS**
 
+**MATHEUS HENRIQUE ARAUJO**
 
-## 📌 Versão
+**JOÃO LUCAS**
 
+**GUILHERME HECKSHER**
 
-Nós usamos [SemVer](http://semver.org/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](https://github.com/suas/tags/do/projeto).
+**LUIS FELIPE**
 
-
-## ✒️ Autores
-
-
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
-
-
-* **Um desenvolvedor** - *Trabalho Inicial* - [umdesenvolvedor](https://github.com/linkParaPerfil)
-* **Fulano De Tal** - *Documentação* - [fulanodetal](https://github.com/linkParaPerfil)
-
-
-Você também pode ver a lista de todos os [colaboradores](https://github.com/usuario/projeto/colaboradores) que participaram deste projeto.
-
-
-## 📄 Licença
-
-
-Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/usuario/projeto/licenca) para detalhes.
-
-
-## 🎁 Expressões de gratidão
-
-
-* Conte a outras pessoas sobre este projeto 📢;
-* Convide alguém da equipe para uma cerveja 🍺;
-* Um agradecimento publicamente 🫂;
-* etc.
-
-
-
-
----
-⌨️ com ❤️ por [Armstrong Lohãns](https://gist.github.com/lohhans) 😊
 
