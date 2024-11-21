@@ -142,7 +142,7 @@ Digite o tempo máximo desejado (minutos): 60
 ```Python
 
 Treinos com tempo de 60.0 minutos:
-Tipo: Treino, Data: 20/10/2020, Distância: 15.0 km, Tempo: 60.0 min, Localização: jaqueira, Clima: sol
+Tipo: Treino, Data: 20/10/2020, Distância: 15.0 km, Tempo: 60.0 min, Localização: jaqueira, Clima: sol
 
 ````
 a partir disso ten-se um treino filtrado com a escolha do usuário, onde poderia se ter filtrado por distancia ou por tempo
@@ -172,7 +172,7 @@ Menu:
 2. Adicionar Objetivo
 3. Atualizar Objetivo
 4. Deletar Objetivo
-5. Voltar ao menu principal
+5. Voltar ao menu principal
 
 
 
@@ -249,4 +249,4 @@ biblioteca time(na funcionalidade extra)
 # 💻 FLUXOGRAMA:
 
 
-![fluxograma](c:\Users\leona\Downloads\fluxograma)
+![fluxograma](file:///C:/Users/leona/Downloads/fluxograma%20do%20Crud.jpg)  
