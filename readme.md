@@ -243,3 +243,10 @@ biblioteca time(na funcionalidade extra)
 **LUIS FELIPE**
 
 
+......................................................................
+
+
+# 💻 FLUXOGRAMA:
+
+
+<img src=file:///C:/Users/leona/Downloads/fluxograma%20do%20Crud.jpg alt=fluxograma>
