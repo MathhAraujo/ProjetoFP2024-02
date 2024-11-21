@@ -249,4 +249,4 @@ biblioteca time(na funcionalidade extra)
 # 💻 FLUXOGRAMA:
 
 
-![fluxograma](file:///C:/Users/leona/Downloads/fluxograma%20do%20Crud.jpg)  
+![alt text](image.png) 
