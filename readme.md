@@ -21,6 +21,7 @@ Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar 
 
 
 ```python
+
 Menu:
 1. Adicionar Treino ou Competição
 2. Visualizar Treinos ou Competição
@@ -29,6 +30,7 @@ Menu:
 5. Excluir Treino ou Competição
 6. contar tempo de treino
 7. Sair
+
 ```
 
 
